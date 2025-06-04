@@ -47,5 +47,48 @@ public class LinkedList {
             }
             temp = temp.next;
         }
+        System.out.println();
     }
+
+    public void deleteFromFirst(){
+        if (head == null){
+            System.out.println("Nothing to delete");
+        }
+        head = head.next;
+    }
+
+    public void deleteFromLast(){
+        Node temp = head;
+        Node previous = null;
+        if (head == null){
+            System.out.println("Nothing to delete");
+            return;
+        }
+        if (temp.next == null){
+            head = null;
+            return;
+        }
+        while (temp.next!=null){
+            previous = temp;
+            temp=temp.next;
+        }
+        previous.next = null;
+//        System.out.println();
+    }
+
+//    public ListNode middleNode(ListNode head) {
+//
+//        int cnt = 0;
+//        ListNode temp = head;
+//        while (temp!=null){
+//            temp=temp.next;
+//            cnt++;
+//        }
+//        int mid = (int) Math.ceil(cnt+1/2);
+//        for (int i=0 ;i<=mid; i++){
+//            temp = head;
+//            temp = temp.next;
+//        }
+//        return temp;
+//    }
 }
