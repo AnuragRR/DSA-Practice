@@ -91,4 +91,44 @@ public class LinkedList {
 //        }
 //        return temp;
 //    }
+public Node addOne() {
+    reverse();
+    Node temp = head;
+    while (temp.next!= null){
+        if (temp.data == 9){
+            temp.data = 0;
+        }
+        else {
+            temp.data  = temp.data+1;
+            break;
+        }
+        temp = temp.next;
+    }
+    if (temp.next == null){
+        if (temp.data<9){
+            temp.data++;
+        }
+        else {
+            temp.data = 0;
+            Node newNode = new Node(1);
+            temp.next = newNode;
+        }
+    }
+    return reverse();
+}
+public Node reverse(){
+        Node temp = head;
+        Node current = temp;
+        Node prev = null;
+        while (current != null){
+            Node after =  current.next;
+            current.next = prev;
+            prev = current;
+            current = after;
+
+        }
+        head = prev;
+        return head;
+
+}
 }
